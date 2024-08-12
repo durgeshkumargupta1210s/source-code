@@ -1,0 +1,14 @@
+# definite and indefinite integration using python ....
+import sympy as sp
+x = sp.Symbol("x")
+f = input("enter the function(in term of x): ")
+
+f_indefinite = sp.integrate(f,x)
+print("Indefinte integration of f(x) dx =",f_indefinite)
+
+a = float(input("Enter the lower limit of integration"))
+b = float(input("Enter the upper limit of integration"))
+
+f_definite = sp.integrate(f,(x,a,b))
+
+print(f"definite integral of f(x) dx from {a} to {b} = ", f_definite)
