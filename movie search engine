@@ -1,0 +1,31 @@
+# movie search engine using python...
+
+import imdb
+ia=imdb.Cinemagoer()
+Movie=input("enter the movie name :")
+items=ia.search_movie(Movie)
+
+print("\nsearch results :")
+
+for index, movie in enumerate(items):
+    print(f"{index+1}.{movie['title']}({movie['year']})")
+
+movie_index=int(input("\nenter the number of movie :"))
+movie_id=items[movie_index].movieID
+movie_info=ia.get_movie(movie_id)
+
+print("\n movie information")
+
+print(f"Title :{movie_info.get('title')}")
+print(f"Year :{movie_info.get('year')}")
+print(f"Rating :{movie_info.get('rating')}")
+print(f"Plot :{movie_info.get('plot_outline')}")
+print(f"Runtime :{movie_info.get('runtimes',['N/A'])[0]}Minutes")
+print(f"Language :{",".join(movie_info.get('language',[]))}")
+print(f"Country :{",".join(movie_info.get('countries',[]))}")
+print(f"Genres : :{",".join(movie_info.get('genres',[]))}")
+print(f"Director(s) :{",".join(str(d)for d in movie_info.get('directors',[]))}")
+print(f"Cast :{",".join(str(c)for c in movie_info.get('cast',[])[:5])}")
+
+
+
