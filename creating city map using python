@@ -1,0 +1,11 @@
+# how to create our city map using python..
+
+import folium
+
+map_centre=[19.0706, 72.8777]
+
+mymap=folium.Map(location=map_centre, zoom_start=10)
+
+folium.Marker([19.0706, 72.8777],popup="MUMBAI",icon=folium.Icon(color="red", icon="info-sign")).add_to(mymap)
+
+mymap.save("mumbai_map.html")
